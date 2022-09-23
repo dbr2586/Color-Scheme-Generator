@@ -45,7 +45,6 @@ function getColors(){
     fetch (`https://www.thecolorapi.com/scheme?hex=${rootColor}&mode=${mode}&count=4`)
     .then (data => data.json())
     .then (data => {
-      console.log(data)
         for (let i=2; i < 6; i++){
             let value = data.colors[i -2].hex.value
             document.getElementById(`color${i}`).style.background = value
