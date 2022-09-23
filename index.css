@@ -1,0 +1,115 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {  
+    height: 100vh;
+    width: 100vw; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 2fr 0.5fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "eye-drop menu menu menu button"
+      "color1 color2 color3 color4 color5"
+      "color1-name color2-name color3-name color4-name color5-name";
+  }
+  
+  .eye-drop { 
+    background: ghostwhite;
+    padding: 10% 20% 10% 20%;
+    grid-area: eye-drop; }
+
+#eye-dropper {
+    height: 100%;
+    width: 100%;
+}
+  
+  .menu { 
+    background: ghostwhite;
+    grid-area: menu; 
+    padding: 5% 10% 5% 10%;
+}
+
+#mode-menu{
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+
+  
+  .button { 
+    background: ghostwhite;
+    grid-area: button;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+  #get-color-button{
+    cursor: pointer;
+    width: 40%;
+    height: 60%;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  #randomize-button{
+    cursor: pointer;
+    width: 40%;
+    height: 60%;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  #color1 { 
+    grid-area: color1; 
+}
+  
+#color2 { 
+    grid-area: color2; 
+}
+
+#color3 { 
+    grid-area: color3; 
+}
+
+#color4 { 
+    grid-area: color4; 
+}
+
+#color5 { 
+    grid-area: color5; 
+}
+
+.color-area{
+    cursor: copy;
+    border-left: .5px solid black;
+
+}
+
+
+  #color1-name { grid-area: color1-name; }
+  
+  #color2-name { grid-area: color2-name; }
+  
+  #color3-name { grid-area: color3-name; }
+  
+  #color4-name { grid-area: color4-name; }
+  
+  #color5-name { grid-area: color5-name; }
+  
+  .color-name{
+    background: ghostwhite;
+    cursor: copy;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: .5px solid black;
+    font-size: 1.8em;
+  }
