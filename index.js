@@ -71,7 +71,3 @@ function getColors(){
       document.getElementById("eye-dropper").value = document.getElementById("root-color-name").value
     })
     
-    
-    // document.getElementsByClassName("color-area").map()
-    // document.getElementById(`color${i}`).addEventListener("click", navigator.clipboard.writeText(value))
-    // document.getElementById(`color${i}-name`).addEventListener("click", navigator.clipboard.writeText(value))
