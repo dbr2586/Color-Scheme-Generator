@@ -150,6 +150,7 @@ span {
   #color5-name { grid-area: color5-name; }
   
   .color-name{
+    text-align: center;
     cursor: copy;
     display: flex;
     justify-content: center;

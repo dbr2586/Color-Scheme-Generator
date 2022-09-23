@@ -51,7 +51,7 @@ function getColors(){
             let value = data.colors[i-1].hex.value
             hexCodes.push(value)
             document.getElementById(`color${i}`).style.background = value
-            document.getElementById(`color${i}-name`).innerHTML = `<span id="span${i}">${value}<span>`
+            document.getElementById(`color${i}-name`).innerHTML = `<span id="span${i}">&nbsp${value} <span>`
             document.getElementById(`span${i}`).style.background = value
             let red = parseInt(value.slice(1,3), 16)
             let green = parseInt(value.slice(3,5), 16)
@@ -67,8 +67,11 @@ function getColors(){
       document.getElementById(`color${i}-name`).addEventListener("click", function(){navigator.clipboard.writeText(hexCodes[i])})
     }
 
-    document.getElementById("root-color-name").addEventListener("change", console.log("hello"))
-
+    document.getElementById("root-color-name").addEventListener("change", function(){
+      document.getElementById("eye-dropper").value = document.getElementById("root-color-name").value
+    })
+    
+    
     // document.getElementsByClassName("color-area").map()
     // document.getElementById(`color${i}`).addEventListener("click", navigator.clipboard.writeText(value))
     // document.getElementById(`color${i}-name`).addEventListener("click", navigator.clipboard.writeText(value))
