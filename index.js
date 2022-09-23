@@ -1,11 +1,11 @@
 let rootColor 
 let mode
 let modeArray = ["monochrome", "monochrome-dark", "monochrome-light", "analogic", "complement", "analogic-complement", "triad", "quad"]
-
+let hexCodes = []
 
 function randomize(){
-  document.getElementById("eye-dropper").defaultValue = getRandomColor()
-  document.getElementById("mode-menu").defaultValue = getRandomMode()
+  document.getElementById("eye-dropper").value = getRandomColor()
+  document.getElementById("mode-menu").value = getRandomMode()
   getColors()
 }
 
@@ -37,19 +37,28 @@ document.getElementById("randomize-button").addEventListener("click", randomize)
 
 
 function getColors(){
+    hexCodes = []
     rootColor = document.getElementById("eye-dropper").value
-    document.getElementById(`color1`).style.background = rootColor
-    document.getElementById(`color1-name`).textContent = rootColor
+    document.body.style.background = rootColor
+    hexCodes.push(rootColor)
     rootColor = document.getElementById("eye-dropper").value.slice(1, 7)
     mode = document.getElementById("mode-menu").value 
-    fetch (`https://www.thecolorapi.com/scheme?hex=${rootColor}&mode=${mode}&count=4`)
+    fetch (`https://www.thecolorapi.com/scheme?hex=${rootColor}&mode=${mode}&count=10`)
     .then (data => data.json())
     .then (data => {
-        for (let i=2; i < 6; i++){
-            let value = data.colors[i -2].hex.value
+        for (let i=1; i < 6; i++){
+            let value = data.colors[i-1].hex.value
+            hexCodes.push(value)
             document.getElementById(`color${i}`).style.background = value
-            document.getElementById(`color${i}-name`).textContent = value
-            document.getElementById(`color${i}`).addEventListener("click", navigator.clipboard.writeText(value))
-            document.getElementById(`color${i}-name`).addEventListener("click", navigator.clipboard.writeText(value) )
-
+            document.getElementById(`color${i}-name`).innerHTML = `<span id="span${i}">${value}<span>`
+            document.getElementById(`span${i}`).style.background = value
     }})}
+
+    for (let i = 1; i < 6; i++){
+      document.getElementById(`color${i}`).addEventListener("click", function(){navigator.clipboard.writeText(hexCodes[i-1])})
+      document.getElementById(`color${i}-name`).addEventListener("click", function(){navigator.clipboard.writeText(hexCodes[i-1])})
+    }
+
+    // document.getElementsByClassName("color-area").map()
+    // document.getElementById(`color${i}`).addEventListener("click", navigator.clipboard.writeText(value))
+    // document.getElementById(`color${i}-name`).addEventListener("click", navigator.clipboard.writeText(value))

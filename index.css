@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    background: ghostwhite
 }
 
 .container {  
@@ -12,58 +13,75 @@ html, body {
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      "eye-drop menu menu menu button"
+      "eye-drop button1 menu menu button2"
       "color1 color2 color3 color4 color5"
       "color1-name color2-name color3-name color4-name color5-name";
   }
   
   .eye-drop { 
-    background: ghostwhite;
     padding: 10% 20% 10% 20%;
     grid-area: eye-drop; }
 
 #eye-dropper {
+  border: none;
+  background-color: aliceblue;
+    cursor: pointer; 
     height: 100%;
     width: 100%;
+    border-radius: 5px;
 }
   
   .menu { 
-    background: ghostwhite;
     grid-area: menu; 
-    padding: 5% 10% 5% 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #mode-menu{
-    width: 100%;
-    height: 100%;
-    font-size: 100%;
+    border: none;
+    border-radius: 5px;
+    background: rgb(43, 42, 42);
+    color: cyan;
+    cursor: pointer;
+    width: 80%;
+    height: 60%;
     text-align: center;
     font-size: 1.8em;
 }
 
 
-  
-  .button { 
-    background: ghostwhite;
-    grid-area: button;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+button {
+  width: 80%;
+  height: 60%; 
+  border-radius: 5px;
+  border: none;
+  font-size: 1.4em;
 }
 
+button:hover{
+  opacity: 0.7
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+
+
   #get-color-button{
+    background: rgb(0, 240, 104);
+    grid-area: button2;
     cursor: pointer;
-    width: 40%;
-    height: 60%;
-    font-size: 1.2em;
     font-weight: bold;
   }
 
   #randomize-button{
+    background: rgb(157, 157, 102);
+    grid-area: button2;
     cursor: pointer;
-    width: 40%;
-    height: 60%;
-    font-size: 1.2em;
     font-weight: bold;
   }
   
@@ -93,6 +111,11 @@ html, body {
 
 }
 
+span {
+  padding: 5px;
+  border-radius: 5px;
+}
+
 
   #color1-name { grid-area: color1-name; }
   
@@ -105,11 +128,25 @@ html, body {
   #color5-name { grid-area: color5-name; }
   
   .color-name{
-    background: ghostwhite;
     cursor: copy;
     display: flex;
     justify-content: center;
     align-items: center;
     border-left: .5px solid black;
     font-size: 1.8em;
+  }
+
+
+  @media only screen and (max-width: 760px) {
+    button {
+      font-size: 1em
+    }
+    .color-name {
+      font-size: 1.4em
+    }
+
+    #mode-menu {
+      font-size:  1.4em
+    }
+
   }
